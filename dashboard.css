@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+}
+
+.circle-container {
+  position: relative;
+  width: 300px; /* Adjust size as needed */
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  display: flex;
+}
+
+.half {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333; /* Dark text for contrast on yellow */
+  text-align: center;
+}
+
+.left-half {
+  background-color: #FFEB80; /* Soft yellow */
+  border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+.right-half {
+  background-color: #FFE066; /* Slightly darker yellow for contrast */
+  border-left: 1px solid rgba(0,0,0,0.1);
+}
+
+.left-half:hover {
+  background-color: #FFD740; /* Darker yellow on hover */
+}
+
+.right-half:hover {
+  background-color: #FFC107; /* Darker yellow on hover */
+}

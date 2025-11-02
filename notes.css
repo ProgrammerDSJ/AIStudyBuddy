@@ -1,0 +1,271 @@
+:root{
+  --bg: #0f1724;
+  --card: #0b1220;
+  --accent: #f6c84c;
+  --muted: #a8b3c5;
+  --text: #e6eef8;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, system-ui, Arial, sans-serif;
+  background: linear-gradient(180deg,#071129 0%,#07131f 100%);
+  color:var(--text);
+  min-height:100vh;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.01);
+}
+
+.topbar h1{ margin:0; font-size:20px; letter-spacing:0.4px; }
+
+.btn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  padding:8px 12px;
+  color:var(--text);
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn:hover{ 
+  transform:translateY(-1px); 
+  background: rgba(255,255,255,0.03);
+}
+
+main{ padding:20px 28px; max-width: 1400px; margin: 0 auto; }
+
+.message{
+  margin:24px 0;
+  color:var(--muted);
+  font-size:15px;
+}
+
+/* grid for folder thumbnails */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap:18px;
+}
+
+/* folder thumbnail */
+.folder{
+  background: linear-gradient(180deg,#0b1728,#081224);
+  border-radius:12px;
+  padding:16px;
+  min-height:120px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:flex-start;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  cursor:pointer;
+  user-select:none;
+  transition: box-shadow .15s ease, transform .08s ease;
+  position:relative;
+}
+
+/* small folder tab */
+.folder:before{
+  content:"";
+  width:60px;
+  height:18px;
+  background: linear-gradient(90deg,var(--accent), #f0b33e);
+  border-radius:4px;
+  position:absolute;
+  top:-8px;
+  left:14px;
+  box-shadow: 0 6px 20px rgba(240,179,62,0.08);
+  transform: translateZ(0);
+}
+
+/* folder name */
+.folder .name{
+  font-weight:700;
+  font-size:15px;
+  margin-top:18px;
+  color:var(--text);
+}
+
+/* hint / meta */
+.folder .meta { margin-top:6px; color:var(--muted); font-size:13px; }
+
+/* hover */
+.folder:hover{ box-shadow: 0 14px 36px rgba(0,0,0,0.6); transform: translateY(-4px); }
+
+/* chapters & notes views */
+.hidden { display:none; }
+
+.breadcrumbs{ 
+  margin:12px 0; 
+  color:var(--muted); 
+  font-size:14px; 
+}
+
+.breadcrumbs a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.breadcrumbs a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.chapter{
+  background: rgba(255,255,255,0.02);
+  border-radius:8px;
+  padding:12px;
+  cursor:pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.chapter:hover{ 
+  transform: translateY(-2px); 
+  box-shadow:0 10px 24px rgba(0,0,0,0.35); 
+}
+
+.notesView{
+  margin-top:18px;
+  background: rgba(255,255,255,0.01);
+  border-radius:10px;
+  padding:16px;
+}
+
+.notesView h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--text);
+  font-size: 22px;
+}
+
+/* Note items styling */
+.noteItem {
+  padding: 12px;
+  margin-bottom: 8px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+  transition: background 0.15s ease;
+}
+
+.noteItem:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.noteItem .noteTitle {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.noteItem .noteContent {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.noteItem .fileLink {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: var(--accent);
+  color: #000;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.noteItem .fileLink:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* small form */
+.formRow{ display:flex; gap:10px; margin-bottom:10px; flex-wrap: wrap; }
+.input, textarea, select {
+  padding:8px 10px; 
+  border-radius:8px; 
+  border:1px solid rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.01); 
+  color:var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.15s ease;
+}
+
+.input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+textarea{ 
+  min-height:120px; 
+  width:100%; 
+  resize:vertical; 
+  line-height: 1.5;
+}
+
+.small{ width:150px; }
+
+.kv{ 
+  color:var(--muted); 
+  font-size:13px; 
+  margin-bottom:8px; 
+}
+
+/* File input styling */
+input[type="file"] {
+  padding: 8px;
+  border: 1px dashed rgba(255,255,255,0.1);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.01);
+  color: var(--text);
+  cursor: pointer;
+  width: 100%;
+  font-size: 13px;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: opacity 0.15s ease;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  
+  .formRow {
+    flex-direction: column;
+  }
+  
+  .small {
+    width: 100%;
+  }
+}
